@@ -35,6 +35,7 @@ const exec = (context) => check(context) && (
       console.log(context.event.text);
       if (context.event.text?.ToString?.includes(sensitive_words[i]) || context.transcription?.ToString?.includes(sensitive_words[i])){
         sensitive_bool = true;
+        console.log('中啦!!');
       }
     }
 
