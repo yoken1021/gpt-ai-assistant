@@ -33,7 +33,7 @@ const exec = (context) => check(context) && (
       console.log(context);
       console.log('你打的文字應該是:');
       console.log(context.event.text);
-      if (context?.ToString?.includes(sensitive_words[i])){
+      if (context.event.text?.ToString?.includes(sensitive_words[i]) || context.transcription?.ToString?.includes(sensitive_words[i])){
         sensitive_bool = true;
       }
     }
