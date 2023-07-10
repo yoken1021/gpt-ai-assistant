@@ -27,9 +27,15 @@ const exec = (context) => check(context) && (
     // prompt.write(ROLE_HUMAN, `${t('__COMPLETION_DEFAULT_AI_TONE')(config.BOT_TONE)}${context.trimmedText}'`).write(ROLE_AI);
     
     let sensitive_words = config.SENSITIVE_WORDS.split(',');
+    let sensitive_words2 = config.SENSITIVE_WORDS2.split(',');
     let sensitive_bool = false;
     for (let i = 0 ; i < sensitive_words.length ; i++){
       if (context.event.text?.includes(sensitive_words[i]) || context.transcription?.includes(sensitive_words[i])){
+        sensitive_bool = true;
+      }
+    }
+    for (let i = 0 ; i < sensitive_words2.length ; i++){
+      if (context.event.text?.includes(sensitive_words2[i]) || context.transcription?.includes(sensitive_words2[i])){
         sensitive_bool = true;
       }
     }

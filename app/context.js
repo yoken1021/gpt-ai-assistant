@@ -104,12 +104,18 @@ class Context {
 
   get sensitiveWords() {
     let sensitive_words = config.SENSITIVE_WORDS.split(',');
+    let sensitive_words2 = config.SENSITIVE_WORDS2.split(',');
     
     if (this.event.isText) {
       let text = this.event.text.replaceAll('　', ' ').trim();
       for (let i = 0 ; i < sensitive_words.length ; i++){
         if (text.includes(sensitive_words[i])){
           text = text.replaceAll(sensitive_words[i], '(某個身體部位)').trim();
+        }
+      }
+      for (let i = 0 ; i < sensitive_words2.length ; i++){
+        if (text.includes(sensitive_words2[i])){
+          text = text.replaceAll(sensitive_words2[i], '(某種愉悅的活動)').trim();
         }
       }
       
