@@ -30,9 +30,8 @@ const exec = (context) => check(context) && (
     let sensitive_bool = false;
     for (let i = 0 ; i < sensitive_words.length ; i++){
       console.log('現在要檢查的是:'+sensitive_words[i]);
-      console.log(context);
-      console.log('你打的文字應該是:');
-      console.log(context.event.text);
+      console.log('你打的文字應該是:'+context.event.text?.ToString);
+      console.log(context.event.text?.ToString?.includes(sensitive_words[i]));
       if (context.event.text?.ToString?.includes(sensitive_words[i]) || context.transcription?.ToString?.includes(sensitive_words[i])){
         sensitive_bool = true;
         console.log('中啦!!');
