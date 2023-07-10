@@ -31,6 +31,8 @@ const exec = (context) => check(context) && (
     for (let i = 0 ; i < sensitive_words.length ; i++){
       console.log('現在要檢查的是:'+sensitive_words[i]);
       console.log(context);
+      console.log('你打的文字應該是:');
+      console.log(context.event.text);
       if (context?.ToString?.includes(sensitive_words[i])){
         sensitive_bool = true;
       }
