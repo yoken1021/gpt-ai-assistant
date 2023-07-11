@@ -50,6 +50,7 @@ export {
   updateHistory,
   removeHistory,
   printHistories,
+  getHistoryArrayLength,
 };
 
 export default histories;
