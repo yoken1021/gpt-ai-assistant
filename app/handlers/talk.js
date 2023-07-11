@@ -6,6 +6,7 @@ import { COMMAND_BOT_CONTINUE, COMMAND_BOT_TALK } from '../commands/index.js';
 import Context from '../context.js';
 import { updateHistory } from '../history/index.js';
 import { getPrompt, setPrompt } from '../prompt/index.js';
+import { getHistoryArrayLength } from './history/index.js';
 
 /**
  * @param {Context} context
@@ -26,6 +27,9 @@ const exec = (context) => check(context) && (
     console.log('----context start----');
     console.log(context);
     console.log('----context end----');
+    console.log('----HistoryArrayLength----');
+    console.log(getHistoryArrayLength());
+    console.log('----HistoryArrayLength----');
 
     const prompt = getPrompt(context.userId);
     //// prompt.write(ROLE_HUMAN, `${t('__COMPLETION_DEFAULT_AI_TONE')(config.BOT_TONE)}${context.trimmedText}'`).write(ROLE_AI);

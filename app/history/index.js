@@ -40,6 +40,10 @@ const printHistories = () => {
   console.info(messages.join(''));
 };
 
+const getHistoryArrayLength = () => {
+  return getHistory(contextId).messages.length;
+}
+
 export {
   getHistory,
   setHistory,
