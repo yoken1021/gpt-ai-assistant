@@ -27,7 +27,8 @@ const exec = (context) => check(context) && (
     console.log(context);
     console.log('----context end----');
     console.log('----HistoryArrayLength----');
-    console.log(getHistoryArrayLength());
+    getHistoryArrayLength();
+    // console.log(getHistoryArrayLength());
     console.log('----HistoryArrayLength----');
 
     const prompt = getPrompt(context.userId);
