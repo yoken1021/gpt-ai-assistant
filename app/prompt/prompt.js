@@ -21,8 +21,12 @@ class Prompt {
   constructor() {
     this
       .write(ROLE_SYSTEM, config.APP_INIT_PROMPT || t('__COMPLETION_DEFAULT_SYSTEM_PROMPT'))
-      .write(ROLE_HUMAN, `${t('__COMPLETION_DEFAULT_HUMAN_PROMPT')(config.HUMAN_NAME)}${config.HUMAN_INIT_PROMPT}`)
-      .write(ROLE_AI, `${t('__COMPLETION_DEFAULT_AI_PROMPT')(config.BOT_NAME)}${config.BOT_INIT_PROMPT}`);
+      .write(ROLE_HUMAN, `${config.HUMAN_INIT_PROMPT}`)
+      .write(ROLE_AI, `${config.BOT_INIT_PROMPT}`)
+      .write(ROLE_HUMAN, `${config.HUMAN_INIT_PROMPT2}`)
+      .write(ROLE_AI, `${config.BOT_INIT_PROMPT2}`)
+      .write(ROLE_HUMAN, `${config.HUMAN_INIT_PROMPT3}`)
+      .write(ROLE_AI, `${config.BOT_INIT_PROMPT3}`);
   }
 
   /**
