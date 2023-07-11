@@ -22,21 +22,12 @@ class Prompt {
     this
       .write(ROLE_SYSTEM, config.APP_INIT_PROMPT || t('__COMPLETION_DEFAULT_SYSTEM_PROMPT'))
       .write(ROLE_HUMAN, `${config.HUMAN_INIT_PROMPT}`)
-      .write(ROLE_AI, `${config.BOT_INIT_PROMPT}`);
-    this
+      .write(ROLE_AI, `${config.BOT_INIT_PROMPT}`)
       .write(ROLE_HUMAN, `${config.HUMAN_INIT_PROMPT2}`)
-      .write(ROLE_AI, `${config.BOT_INIT_PROMPT2}`);
+      .write(ROLE_AI, `${config.BOT_INIT_PROMPT2}`)
+      .write(ROLE_HUMAN, `${config.HUMAN_INIT_PROMPT3}`)
+      .write(ROLE_AI, `${config.BOT_INIT_PROMPT3}`);
   }
-  // constructor() {
-  //   this
-  //     .write(ROLE_HUMAN, `${config.HUMAN_INIT_PROMPT2}`)
-  //     .write(ROLE_AI, `${config.BOT_INIT_PROMPT2}`);
-  // }
-  // constructor() {
-  //   this
-  //     .write(ROLE_HUMAN, `${config.HUMAN_INIT_PROMPT3}`)
-  //     .write(ROLE_AI, `${config.BOT_INIT_PROMPT3}`);
-  // }
 
   /**
    * @returns {Message}
