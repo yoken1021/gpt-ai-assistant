@@ -54,8 +54,12 @@ const exec = (context) => check(context) && (
     // else{
     //   prompt.write(ROLE_HUMAN, `${t('__COMPLETION_DEFAULT_AI_TONE')(config.BOT_TONE)}${context.sensitiveWords}'`).write(ROLE_AI);
     // }
-
-    prompt.write(ROLE_HUMAN, `${context.trimmedText}'`).write(ROLE_AI);
+    if (history.messages.length<=1){
+      prompt.write(ROLE_HUMAN, `我是${context.source.name}，${context.trimmedText}`).write(ROLE_AI);
+    }
+    else{
+      prompt.write(ROLE_HUMAN, `${context.trimmedText}`).write(ROLE_AI);
+    }
     
     try {
       const { text, isFinishReasonStop } = await generateCompletion({ prompt });
