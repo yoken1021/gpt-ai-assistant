@@ -4,7 +4,7 @@ import { ROLE_AI, ROLE_HUMAN } from '../../services/openai.js';
 import { generateCompletion } from '../../utils/index.js';
 import { COMMAND_BOT_CONTINUE, COMMAND_BOT_TALK } from '../commands/index.js';
 import Context from '../context.js';
-import { updateHistory, getHistoryArrayLength } from '../history/index.js';
+import { updateHistory, getHistory } from '../history/index.js';
 import { getPrompt, setPrompt } from '../prompt/index.js';
 
 /**
@@ -27,8 +27,8 @@ const exec = (context) => check(context) && (
     console.log(context);
     console.log('----context end----');
     console.log('----HistoryArrayLength----');
-    getHistoryArrayLength();
-    // console.log(getHistoryArrayLength());
+    const history = getHistory(context.id);
+    console.log(history);
     console.log('----HistoryArrayLength----');
 
     const prompt = getPrompt(context.userId);

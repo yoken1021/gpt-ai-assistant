@@ -42,7 +42,7 @@ const printHistories = () => {
 
 const getHistoryArrayLength = () => {
   // return getHistory(contextId).messages.length;
-  console.log(contextId);
+  // console.log(contextId);
 }
 
 export {
