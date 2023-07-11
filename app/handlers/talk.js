@@ -4,9 +4,8 @@ import { ROLE_AI, ROLE_HUMAN } from '../../services/openai.js';
 import { generateCompletion } from '../../utils/index.js';
 import { COMMAND_BOT_CONTINUE, COMMAND_BOT_TALK } from '../commands/index.js';
 import Context from '../context.js';
-import { updateHistory } from '../history/index.js';
+import { updateHistory, getHistoryArrayLength } from '../history/index.js';
 import { getPrompt, setPrompt } from '../prompt/index.js';
-import { getHistoryArrayLength } from './history/index.js';
 
 /**
  * @param {Context} context
