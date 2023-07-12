@@ -63,7 +63,7 @@ const exec = (context) => check(context) && (
       }
     }
     let timeStamp = context.source.createdAt;
-    let thisTime = new Date(timeStamp*1000);
+    let thisTime = new Date(timeStamp*1000+28800000);//UTC+8
     let messageTime = thisTime.getFullYear() + "年" + (thisTime.getMonth()+1) + "月" + thisTime.getDate() + "日" + thisTime.getHours() + "時" + thisTime.getMinutes() + "分" + thisTime.getSeconds() + "秒";
     console.log(messageTime);
 
