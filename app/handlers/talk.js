@@ -54,8 +54,24 @@ const exec = (context) => check(context) && (
     // else{
     //   prompt.write(ROLE_HUMAN, `${t('__COMPLETION_DEFAULT_AI_TONE')(config.BOT_TONE)}${context.sensitiveWords}'`).write(ROLE_AI);
     // }
+
+    let time_words = ['日曆','時鐘','日期','時間','幾月','幾日','幾號','幾點','幾分'];
+    let time_bool = false;
+    for (let i = 0 ; i < time_words.length ; i++){
+      if (context.event.text?.includes(time_words[i]) || context.transcription?.includes(time_words[i])){
+        time_bool = true;
+      }
+    }
+    let timeStamp = context.source.createdAt;
+    let thisTime = new Date(timeStamp);
+    let messageTime = thisTime.getFullYear() + "年" + (thisTime.getMonth()+1) + "月" + thisTime.getDate() + "日" + thisTime.getHours() + "時" + thisTime.getMinutes() + "分" + thisTime.getSeconds() + "秒";
+    console.log(messageTime);
+
     if (history.messages.length<=1){
       prompt.write(ROLE_HUMAN, `我是${context.source.name}，${context.trimmedText}`).write(ROLE_AI);
+    }
+    else if (time_bool){
+      prompt.write(ROLE_HUMAN, `(資訊提供:現在時間是${messageTime})。${context.trimmedText}`).write(ROLE_AI);
     }
     else{
       prompt.write(ROLE_HUMAN, `${context.trimmedText}`).write(ROLE_AI);
