@@ -87,6 +87,10 @@ class Context {
       const text = this.transcription.replace(config.BOT_NAME, '').trim();
       return addMark(text);
     }
+    if (this.event.isSticker) {
+      const text = this.keyText;
+      return addMark(text);
+    }
     return '?';
   }
 
@@ -141,6 +145,9 @@ class Context {
       } catch (err) {
         return this.pushError(err);
       }
+    }
+    if (this.event.isSticker){
+      this.keyText = "123";
     }
     updateHistory(this.id, (history) => history.write(this.source.name, this.trimmedText));
     return this;
