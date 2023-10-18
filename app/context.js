@@ -147,7 +147,12 @@ class Context {
       }
     }
     if (this.event.isSticker){
-      this.keyText = "123";
+      if (this.event.keywords != undefined){
+        this.keyText = this.event.keywords[0];
+      }
+      else{
+        this.keyText = '123';
+      }
     }
     updateHistory(this.id, (history) => history.write(this.source.name, this.trimmedText));
     return this;
