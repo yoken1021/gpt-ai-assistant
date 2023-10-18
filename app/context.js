@@ -148,10 +148,11 @@ class Context {
     }
     if (this.event.isSticker){
       if (this.event.message.keywords != undefined){
-        this.keyText = this.event.message.keywords[0];
+        this.keyText = this.event.message.keywords.join(", ");
+        this.keyText = "(我傳給了刺刺郎一個貼圖，內容看起來包含了:" + this.keyText + "，請解讀他並做出回應)";
       }
       else{
-        this.keyText = '123';
+        this.keyText = "(我傳給了刺刺郎一個貼圖，但內容實在看不出來是什麼東西，請做出回應)";
       }
     }
     updateHistory(this.id, (history) => history.write(this.source.name, this.trimmedText));
