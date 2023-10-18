@@ -147,8 +147,8 @@ class Context {
       }
     }
     if (this.event.isSticker){
-      if (this.event.keywords != undefined){
-        this.keyText = this.event.keywords[0];
+      if (this.event.message.keywords != undefined){
+        this.keyText = this.event.message.keywords[0];
       }
       else{
         this.keyText = '123';
