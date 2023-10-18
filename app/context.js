@@ -149,10 +149,10 @@ class Context {
     if (this.event.isSticker){
       if (this.event.message.keywords != undefined){
         this.keyText = this.event.message.keywords.join(", ");
-        this.keyText = "(我傳給了刺刺郎一個貼圖，內容看起來包含了:" + this.keyText + "，請解讀他並做出回應)";
+        this.keyText = "(我傳給了刺刺郎一個貼圖，內容可能代表著:" + this.keyText + "，你看到了這張貼圖，請開始回應我。)";
       }
       else{
-        this.keyText = "(我傳給了刺刺郎一個貼圖，但內容實在看不出來是什麼東西，請做出回應)";
+        this.keyText = "(我傳給了刺刺郎一個貼圖，但內容實在看不出來是什麼東西，請開始回應我。)";
       }
     }
     updateHistory(this.id, (history) => history.write(this.source.name, this.trimmedText));
