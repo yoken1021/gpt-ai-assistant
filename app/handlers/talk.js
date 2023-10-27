@@ -68,13 +68,13 @@ const exec = (context) => check(context) && (
     console.log(messageTime);
 
     if (history.messages.length<=1){
-      prompt.write(ROLE_HUMAN, `[開始進行角色扮演，回覆字數請限制在100字以內](我身上某處寫著"${context.source.name}"，有可能是我的暱稱，但刺刺郎不確定)${context.trimmedText}`).write(ROLE_AI);
-    }
+      prompt.write(ROLE_HUMAN, `[開始進行角色扮演，回覆字數請限制在100字以內。在開頭先用單一英文詞彙表示目前內容的屬性，並用{}包起來，默認為：{normal}]("${context.source.name}"有可能是我的暱稱，但刺刺郎不確定)${context.trimmedText}`).write(ROLE_AI);
+    } 
     else if (time_bool){
-      prompt.write(ROLE_HUMAN, `[持續進行角色扮演，回覆字數請限制在100字以內](資訊提供:現在時間是${messageTime})${context.trimmedText}`).write(ROLE_AI);
+      prompt.write(ROLE_HUMAN, `[持續進行角色扮演，回覆字數請限制在100字以內。在開頭先用單一英文詞彙表示目前內容的屬性，並用{}包起來，默認為：{normal}](資訊提供:現在時間是${messageTime})${context.trimmedText}`).write(ROLE_AI);
     }
     else{
-      prompt.write(ROLE_HUMAN, `[持續進行角色扮演，回覆字數請限制在100字以內]${context.trimmedText}`).write(ROLE_AI);
+      prompt.write(ROLE_HUMAN, `[持續進行角色扮演，回覆字數請限制在100字以內。在開頭先用單一英文詞彙表示目前內容的屬性，並用{}包起來，默認為：{normal}]${context.trimmedText}`).write(ROLE_AI);
     }
     
     try {
